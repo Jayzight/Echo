@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="echo.css">
+<link rel="stylesheet" href="animate.css">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou|Quicksand|Montserrat" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="echo.js"></script>
+
+<head>
+<body>
+	<div id="page-preloader"> <span class="spinner"></span></div>
+<div id="body1">
+	<div class="sidenav" id="yo">
+		<p id="logo"> ECHO. </p>
+		<p id='creator'>By Jayson Tian </p>
+		<br>
+		<a onclick="newGame()">Start</a>
+		<a onclick="settings()">Settings</a>
+		<a href="#clients">Scoreboard</a>
+		<a onclick="help()">Help</a>
+		<a href="#contact">Github</a>
+	</div>
+	<div class="line"></div>
+
+	<div class="row">
+	    <div class="col-md-12">
+	      <div class="gamefield">
+	        
+	       	<div class="btn-sett" data-toggle="modal" data-target="#myModal"> 
+	        </div>
+
+	        <div id="buttoncontainer">
+		        <div class="top-row">
+		          <div id= "blue"class="blue gamebutton" onClick="addToPlayer(this.id)"></div>
+		        </div>
+		        <div class="middle-row">
+		          <div id= "green"class="green gamebutton" onClick="addToPlayer(this.id)"></div>
+		          
+		          <div id="gameNumber">
+		            <h2 id="clickNumber">Level 0</h2></div>
+
+		          <div id= "pink"class="pink gamebutton" onClick="addToPlayer(this.id)"></div>
+		        </div>
+		        <div class="bottom-row">
+		          <div id= "orange"class="orange gamebutton" onClick="addToPlayer(this.id)"></div>
+		          <div></div>
+		        </div>
+		    </div>
+	  	</div>
+	</div>
+
+	<div id="snackbar"> Correct </div>
+	<div id="snackbar2"> Incorrect - Please Restart</div>
+
+
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+	    <h2 class="heading-text">HELP</h2>
+	    <p class="normal-text">This is a more simplistic adaption of the classic game, Simon. The rules are simple. A series of tones and lights called echoes will be created. The player must repeat the sequence. If the player succeeds, the series becomes progressively longer and more complex. Once the player fails or the time limit runs out, the game is over.</p>
+	    <br>
+	    <p class="normal-text"> Created by Jayson Tian in Grade 9. I used some resources to help with the JavaScript code. Linked in the Github Pages.</p>
+	  </div>
+	</div>
+
+	<div id='settingsdiv' class="cover">
+		<div class="settings-content">
+			<h2 class="heading-text">SETTINGS</h2>
+			<p class="normal-text" style="padding-top:10px"> Sound Effects <span id="rightfloater"> <label class="switch"><input type="checkbox"><span class="slider round"></span></label> </span></p>
+
+			<p class="normal-text" style="padding-top:0px"> Light Mode <span id="rightfloater"> <label class="switch"><input type="checkbox" value="light" id="lightmode"><span class="slider round"></span></label> </span></p>
+			
+
+			<button style="padding:10px; margin-bottom:25px; font-size:15px; width:100px; border-radius: 12px; background-color: lightgray;"onclick="closesettings()"> Submit </button>
+		</div>
+	</div>
+
+	</div>
+</div>
+</body>
+</html>
