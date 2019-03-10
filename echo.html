@@ -2,25 +2,35 @@
 <html>
 <link rel="stylesheet" href="echo.css">
 <link rel="stylesheet" href="animate.css">
-<link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou|Quicksand|Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou|Quicksand|Montserrat|Lato" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="echo.js"></script>
-
+<title> Echo </title>
 <head>
-<body>
-	<div id="page-preloader"> <span class="spinner"></span></div>
-<div id="body1">
+
+<body style="overflow:hidden;" oncontextmenu="return false;" onkeydown="return false;">
+<div id="load" class="fade">
+	<div style='align-content: center;' class="special">
+		<h1 id="loadtext">ECHO</h1>
+		<p id="loadsmalltext">BY JAYSON TIAN </p>
+		<audio style="display:none;" autoplay controls> 
+			<source src="load.mp3">
+			<p>Your browser doens't support audio files.</p>
+		</audio>
+	</div>
+</div>
+
+<div id="body1" style='display:none;'>
 	<div class="sidenav" id="yo">
 		<p id="logo"> ECHO. </p>
 		<p id='creator'>By Jayson Tian </p>
 		<br>
 		<a onclick="newGame()">Start</a>
 		<a onclick="settings()">Settings</a>
-		<a href="#clients">Scoreboard</a>
 		<a onclick="help()">Help</a>
-		<a href="#contact">Github</a>
+		<a onclick="github()">Github</a>
+		<a style="color:white"href="#scoreboard">Scores</a>
 	</div>
-	<div class="line"></div>
 
 	<div class="row">
 	    <div class="col-md-12">
@@ -33,13 +43,17 @@
 		        <div class="top-row">
 		          <div id= "blue"class="blue gamebutton" onClick="addToPlayer(this.id)"></div>
 		        </div>
-		        <div class="middle-row">
+		        <div class="top2-row">
 		          <div id= "green"class="green gamebutton" onClick="addToPlayer(this.id)"></div>
-		          
-		          <div id="gameNumber">
-		            <h2 id="clickNumber">Level 0</h2></div>
-
 		          <div id= "pink"class="pink gamebutton" onClick="addToPlayer(this.id)"></div>
+		        </div>
+		        <div class="middle-row">
+		        <div id="gameNumber">
+		            <h2 id="clickNumber">Level 0</h2></div> </div>
+
+		        <div class="bottom2-row">
+		          <div id= "yellow"class="yellow gamebutton" onClick="addToPlayer(this.id)"></div>
+		          <div id= "purple"class="purple gamebutton" onClick="addToPlayer(this.id)"></div>
 		        </div>
 		        <div class="bottom-row">
 		          <div id= "orange"class="orange gamebutton" onClick="addToPlayer(this.id)"></div>
@@ -65,12 +79,14 @@
 	<div id='settingsdiv' class="cover">
 		<div class="settings-content">
 			<h2 class="heading-text">SETTINGS</h2>
-			<p class="normal-text" style="padding-top:10px"> Sound Effects <span id="rightfloater"> <label class="switch"><input type="checkbox"><span class="slider round"></span></label> </span></p>
+			<p class="normal-text" style="padding-top:10px"> Sound Effects <span id="rightfloater"> <label class="switch"><input type="checkbox" id="sfx"><span class="slider round"></span></label> </span></p>
 
-			<p class="normal-text" style="padding-top:0px"> Light Mode <span id="rightfloater"> <label class="switch"><input type="checkbox" value="light" id="lightmode"><span class="slider round"></span></label> </span></p>
+			<p class="normal-text"> Background Music <span id="rightfloater"> <label class="switch"><input type="checkbox" id="bgmusic"><span class="slider round"></span></label> </span></p>
+
+			<p class="normal-text" style="padding-top:0px"> Light Mode <span id="rightfloater"> <label class="switch"><input type="checkbox" id="lightmode"><span class="slider round"></span></label> </span></p>
 			
 
-			<button style="padding:10px; margin-bottom:25px; font-size:15px; width:100px; border-radius: 12px; background-color: lightgray;"onclick="closesettings()"> Submit </button>
+			<button style="padding:10px; margin-bottom:25px;outline: none;font-size:15px; width:100px; border-radius: 12px; background-color: lightgray;"onclick="closesettings()"> Submit </button>
 		</div>
 	</div>
 

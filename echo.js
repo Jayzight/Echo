@@ -3,7 +3,7 @@
 // creating a variable list with all the vars inside
 var echo = {
   level: 0,
-  possibilities: ['.green','.blue', '.pink', '.orange'],
+  possibilities: ['.green','.blue', '.pink', '.orange', '.purple','.yellow'],
   currentEchoes: [],
   player: [],
   sound:{
@@ -11,9 +11,24 @@ var echo = {
     pink: new Audio('pink.mp3'), 
     orange: new Audio('orange.mp3'), 
     green: new Audio('green.mp3'),
-    fail:new Audio('fail.mp3')
+    purple: new Audio('purple.mp3'), 
+    yellow: new Audio('yellow.mp3'),
+    fail:new Audio('fail.mp3'),
+    bgmusic: new Audio('bgmusic.mp3')
   },
 }
+
+
+
+//ANIMATIONS
+function loadFrame() {
+    document.getElementById("body1").style.display = 'block';
+    document.getElementById("load").style.display = 'none';
+    document.getElementById("body1").className = 'fader';
+};
+
+window.onload = setTimeout(loadFrame, 4000);
+
 
 
 
@@ -51,7 +66,7 @@ function addLevel() {
 }
 
 function generateMove(){
-    echo.currentEchoes.push(echo.possibilities[(Math.floor(Math.random()*4))]); // generating a new echo
+    echo.currentEchoes.push(echo.possibilities[(Math.floor(Math.random()*6))]); // generating a new echo
   showMoves();
 }
 
@@ -82,6 +97,8 @@ function showEcho(field) {
   if (csound == 'pink'){echo.sound.pink.play()}
   if (csound == 'orange'){echo.sound.orange.play()}
   if (csound == 'green'){echo.sound.green.play()}
+  if (csound == 'purple'){echo.sound.purple.play()}
+  if (csound == 'yellow'){echo.sound.yellow.play()}
   
   var light=document.getElementById("lightmode").checked;
   if (light == true) {
@@ -96,13 +113,14 @@ function showEcho(field) {
    'background-color' : 'rgba(255,255,255,0.5)',
    'animation-name' : 'pulse',
    'animation-duration' : '0.4s',
+   'animation-animation-iteration-count:': 'infinite'
 });}
 
   setTimeout(function(){
       $(field).css({
    'background-color' : 'none',
 });
-  }, 500);
+  }, 300);
 }
 
 
@@ -114,6 +132,8 @@ function showEcho(field) {
 function clearPlayer() {
   echo.player = [];
 }
+
+
 
 function addToPlayer(id) {
   var field = "."+id
@@ -135,6 +155,8 @@ function playerTurn(field) {
       if (cpsound == 'pink'){echo.sound.pink.play()}
       if (cpsound == 'orange'){echo.sound.orange.play()}
       if (cpsound == 'green'){echo.sound.green.play()}
+      if (cpsound == 'purple'){echo.sound.purple.play()}
+      if (cpsound == 'yellow'){echo.sound.yellow.play()}
 
       console.log('Good Move!');
       var check = echo.player.length === echo.currentEchoes.length;
@@ -187,11 +209,14 @@ window.onclick = function(event) {
 function settings() {
   var settings = document.getElementById('settingsdiv');
   settings.style.display = "block";
+  document.getElementById("sfx").checked = true;
 }
 
 function closesettings() {
   var settings = document.getElementById('settingsdiv');
   settings.style.display = "none";
+
+  //LIGHT MODE
   var light=document.getElementById("lightmode").checked;
   if (light == true) {
     document.body.style.backgroundColor = 'white';
@@ -207,5 +232,15 @@ function closesettings() {
     document.getElementById('yo').style.color= 'white';
     document.getElementById('yo').style.backgroundColor= 'black';
   }
+  var bgmusic = document.getElementById("bgmusic").checked;
+  if (bgmusic == true) {
+    echo.sound.bgmusic.play()
+  }
+  //BACKGROUND MUSIC
 }
-  
+
+function github() {
+  window.open('https://github.com/Jayzight/jayzight.github.io-Echo')
+}
+
+
